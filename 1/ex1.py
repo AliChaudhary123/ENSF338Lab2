@@ -20,16 +20,16 @@ def func(n):
     This is because divide-and-conquer requires the main problem to be broken down into subparts and solved recursively. 
 
     QUESTION 3: What is the time complexity?
-    Answer: O(2^n)
+    Answer: O(2^n) (exponential). Each call generates twice more calls every time it is called. Makes it much slower.
     '''
     #Question 4: Memoization
-def mem_func(n, cache = {}):
+def mem_func(n, cache = {}): #Dictionary
     if n == 0 or n == 1:
         return n
     if n not in cache:
         cache[n] = mem_func(n-1, cache) + mem_func(n-2, cache)
     return cache[n]
-    #Question 5: Time Complexity -> O(n)
+    #Question 5: Time Complexity -> O(n) (linear). Each fibonacci is calculated once and then is stored, which removes the need for extra calculations. 
 
     #Question6
 def timed():
@@ -63,6 +63,7 @@ def graph(original, mem):
     plt.xlabel("n")
     plt.ylabel("Time(seconds)")
     plt.title("Memoized Recursion")
+    plt.ylim(0e-5, 8.25e-4)
     plt.savefig("ex1.6.2.jpg")
     plt.show()
     
